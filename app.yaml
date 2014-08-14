@@ -11,3 +11,6 @@ handlers:
 
 - url: .*
   script: main.php
+
+- url: /info
+  script: index.php
