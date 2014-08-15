@@ -19,14 +19,16 @@
     // var url = "//localhost:8080/OGTags";
 
     $.ajax({
+      url : url;
       type: "get",
       async: false,
       data : {"url" : urlString},
       dataType: "jsonp",
       jsonp: "callback",
       jsonpCallback:"OGBox.crawlForURLCallback",
-      success: function(){
-         console.log('success');
+      success: function(json){
+        console.log(json);
+        console.log('success');
       },
       error: function(){
          alert('fail');
