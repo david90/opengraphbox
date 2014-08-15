@@ -1,5 +1,5 @@
 <?php
-header('Content-Type: application/json');
+header('content-type: application/json; charset=utf-8');
   include_once('printOGTags.php'); // for printOGTags();
 
   @$url = urldecode ($_GET["url"]);
@@ -8,5 +8,5 @@ header('Content-Type: application/json');
     @$html = file_get_contents($url);
   }
 
-  printOGTags($url, $html);
+  echo $_GET['callback'].'('.printOGTags($url, $html).')';
 ?>

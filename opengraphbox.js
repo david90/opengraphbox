@@ -7,18 +7,31 @@
     console.log(data);
   }
 
+  _D.crawlForURLCallback = function (resultJSON) {
+
+  }
+
   _D.opengraphbox = true; // To test if library installed
 
   _D.crawlForURL = function (urlString) {
 
-    var data = {'url' : urlString};
     var url = "//opengraphbox.appspot.com/OGTags";
+
     $.ajax({
-      dataType: "json",
-      url: url,
-      data : data,
-      success: success
-    });
+      type: "get",
+      async: false,
+      url: "//opengraphbox.appspot.com/OGTags?url="+urlString,
+      dataType: "jsonp",
+      jsonp: "callback",
+      jsonpCallback:"crawlForURLCallback",
+      success: function(json){
+         console.log(json);
+      },
+      error: function(){
+         alert('fail');
+      }
+     });
+
   }
 
   return _D;
