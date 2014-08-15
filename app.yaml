@@ -9,7 +9,7 @@ handlers:
   static_files: favicon.ico
   upload: favicon\.ico
 
-- url: /info
+- url: /OGTags
   script: index.php
 
 - url: .*
