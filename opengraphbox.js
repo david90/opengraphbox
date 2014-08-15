@@ -11,12 +11,12 @@
 
   _D.crawlForURL = function (urlString) {
 
-    var data = {url : urlString};
+    var data = {'url' : urlString};
     var url = "//opengraphbox.appspot.com/OGTags";
     $.ajax({
       dataType: "json",
       url: urlString,
-      data : data;
+      data : data,
       success: success
     });
   }
