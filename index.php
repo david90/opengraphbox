@@ -8,5 +8,8 @@ header('content-type: application/json; charset=utf-8');
     @$html = file_get_contents($url);
   }
 
-  echo $_GET['callback'].'('.printOGTags($url, $html).')';
+  @$callback = $_GET['callback'];
+  echo $callback.'(';
+  printOGTags($url, $html);
+  echo ')';
 ?>

@@ -8,22 +8,23 @@
   }
 
   _D.crawlForURLCallback = function (resultJSON) {
-
+    console.log(resultJSON);
   }
 
   _D.opengraphbox = true; // To test if library installed
 
   _D.crawlForURL = function (urlString) {
 
-    var url = "//opengraphbox.appspot.com/OGTags";
+    // var url = "//opengraphbox.appspot.com/OGTags";
+    var url = "//localhost:8080/OGTags";
 
     $.ajax({
       type: "get",
       async: false,
-      url: "//opengraphbox.appspot.com/OGTags?url="+urlString,
+      url: url+"?url="+urlString,
       dataType: "jsonp",
       jsonp: "callback",
-      jsonpCallback:"crawlForURLCallback",
+      jsonpCallback:"OGBox.crawlForURLCallback",
       success: function(json){
          console.log(json);
       },
