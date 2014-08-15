@@ -19,7 +19,7 @@
     // var url = "//localhost:8080/OGTags";
 
     $.ajax({
-      url : url;
+      url : url,
       type: "get",
       async: false,
       data : {"url" : urlString},
