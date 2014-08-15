@@ -12,5 +12,11 @@ handlers:
 - url: /OGTags
   script: index.php
 
+- url: /opengraphbox.js
+  script: opengraphbox.js
+
+- url: /test
+  script: test.html
+
 - url: .*
   script: main.php

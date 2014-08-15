@@ -1,3 +1,3 @@
 <?php
-    echo 'Hello world!';
+    header($_SERVER["SERVER_PROTOCOL"]." 404 Not Found");
 ?>
