@@ -15,7 +15,7 @@
     var url = "//opengraphbox.appspot.com/OGTags";
     $.ajax({
       dataType: "json",
-      url: urlString,
+      url: url,
       data : data,
       success: success
     });
