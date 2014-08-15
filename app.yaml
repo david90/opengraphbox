@@ -10,13 +10,13 @@ handlers:
   upload: favicon\.ico
 
 - url: /OGTags
-  script: index.php
+  script: php/index.php
 
 - url: /opengraphbox.js
-  script: opengraphbox.js
+  script: js/opengraphbox.js
 
 - url: /test
-  script: test.html
+  script: test/test.html
 
 - url: .*
-  script: main.php
+  script: php/main.php
