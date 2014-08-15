@@ -3,13 +3,12 @@
   var _D = function(){};
   var _P = _D.prototype;
 
-  function success (data) {
-    console.log(data);
-  }
-
-  _D.crawlForURLCallback = function (resultJSON) {
+  crawlForURLCallback = function crawlForURLCallback(resultJSON) {
+    console.log("crawlForURLCallback");
     console.log(resultJSON);
   }
+
+  _D.crawlForURLCallback = crawlForURLCallback;
 
   _D.opengraphbox = true; // To test if library installed
 
@@ -18,6 +17,8 @@
     var url = "//opengraphbox.appspot.com/OGTags";
     // var url = "//localhost:8080/OGTags";
 
+    var crawlForURLCallback = _D.crawlForURLCallback;
+
     $.ajax({
       url : url,
       type: "get",
@@ -25,15 +26,13 @@
       data : {"url" : urlString},
       dataType: "jsonp",
       jsonp: "callback",
-      jsonpCallback:"OGBox.crawlForURLCallback",
-      success: function(json){
-        console.log(json);
-        console.log('success');
-      },
-      error: function(){
-         alert('fail');
-      }
-     });
+      cache: true,
+      jsonpCallback:"crawlForURLCallback",
+    }).done(function (data) {
+        console.log("Success");
+    }).fail(function (XHR, status, error) {
+        console.log(error);
+    });
 
   }
 
