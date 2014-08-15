@@ -17,12 +17,25 @@
       $rmetas['url'] = $url;
       $rmetas['success'] = true;
 
-      echo json_encode($rmetas);
+      $rmetas_json = json_encode($rmetas);
+      echo $rmetas_json;
+      return $rmetas_json;
     } else {
       $rmetas['url'] = $url;
       $rmetas['success'] = false;
-      echo json_encode($rmetas);
+      $rmetas_json = json_encode($rmetas);
+      echo $rmetas_json;
+      return $rmetas_json;
     }
+  }
+
+  function addWebProtocalIfNeeded($url) {
+    if  ( $ret = parse_url($url) ) {
+      if ( !isset($ret["scheme"]) ){
+        $url = "http://{$url}";
+      }
+    }
+    return $url;
   }
 
 ?>

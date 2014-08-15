@@ -4,6 +4,7 @@ header('Content-Type: application/json');
 
   @$url = urldecode ($_GET["url"]);
   if ($url) {
+    $url = addWebProtocalIfNeeded($url);
     @$html = file_get_contents($url);
   }
 
