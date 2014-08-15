@@ -1,4 +1,5 @@
 <?php
+ini_set("user_agent","opengraphbox robot robots");
 header('content-type: application/json; charset=utf-8');
   include_once('printOGTags.php'); // for printOGTags();
 

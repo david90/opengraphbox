@@ -12,6 +12,23 @@
           $content = $meta->getAttribute('content');
           $rmetas[$property] = $content;
       }
+
+      $query = '//*/meta[contains(@name, \'\')]';
+      $metas = $xpath->query($query);
+      foreach ($metas as $meta) {
+          $name = $meta->getAttribute('name');
+          $content = $meta->getAttribute('content');
+          $rmetas[$name] = $content;
+      }
+
+      $query = '//*/meta[contains(@itemprop, \'\')]';
+      $metas = $xpath->query($query);
+      foreach ($metas as $meta) {
+          $itemprop = $meta->getAttribute('itemprop');
+          $content = $meta->getAttribute('content');
+          $rmetas[$itemprop] = $content;
+      }
+
       // var_dump($rmetas);
       // append general info
       $rmetas['url'] = $url;
