@@ -15,13 +15,13 @@
 
   _D.crawlForURL = function (urlString) {
 
-    // var url = "//opengraphbox.appspot.com/OGTags";
-    var url = "//localhost:8080/OGTags";
+    var url = "//opengraphbox.appspot.com/OGTags";
+    // var url = "//localhost:8080/OGTags";
 
     $.ajax({
       type: "get",
       async: false,
-      url: url+"?url="+urlString,
+      data : {"url" : urlString},
       dataType: "jsonp",
       jsonp: "callback",
       jsonpCallback:"OGBox.crawlForURLCallback",
