@@ -25,8 +25,8 @@
       dataType: "jsonp",
       jsonp: "callback",
       jsonpCallback:"OGBox.crawlForURLCallback",
-      success: function(json){
-         console.log(json);
+      success: function(){
+         console.log('success');
       },
       error: function(){
          alert('fail');
