@@ -27,11 +27,13 @@ header('content-type: application/json; charset=utf-8');
 
   # JSON if no callback
   if( ! isset($_GET['callback'])) {
-    exit(extractOGTags($url, $html));
+    echo extractOGTags($url, $html);
+    exit();
   }
 
 # JSONP if valid callback
   if(is_valid_callback($_GET['callback'])) {
-    exit("{$_GET['callback']}("+extractOGTags($url, $html)+")");
+    echo "{$_GET['callback']}(".extractOGTags($url, $html).")";
+    exit();
   }
 ?>

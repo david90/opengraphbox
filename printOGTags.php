@@ -16,7 +16,6 @@
       // append general info
       $rmetas['url'] = $url;
       $rmetas['success'] = true;
-
       $rmetas_json = json_encode($rmetas);
       
       return $rmetas_json;
@@ -24,7 +23,6 @@
       $rmetas['url'] = $url;
       $rmetas['success'] = false;
       $rmetas_json = json_encode($rmetas);
-      
       return $rmetas_json;
     }
   }
