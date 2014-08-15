@@ -1,5 +1,5 @@
 <?
- function printOGTags($url, $html) {
+ function extractOGTags($url, $html) {
     if ($url && $html) {
       libxml_use_internal_errors(true); // Yeah if you are so worried about using @ with warnings
       $doc = new DomDocument();
@@ -18,13 +18,13 @@
       $rmetas['success'] = true;
 
       $rmetas_json = json_encode($rmetas);
-      echo $rmetas_json;
+      
       return $rmetas_json;
     } else {
       $rmetas['url'] = $url;
       $rmetas['success'] = false;
       $rmetas_json = json_encode($rmetas);
-      echo $rmetas_json;
+      
       return $rmetas_json;
     }
   }

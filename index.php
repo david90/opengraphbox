@@ -25,19 +25,13 @@ header('content-type: application/json; charset=utf-8');
           && ! in_array(mb_strtolower($subject, 'UTF-8'), $reserved_words);
   }
 
-
   # JSON if no callback
   if( ! isset($_GET['callback'])) {
-    exit($json);
+    exit(extractOGTags($url, $html));
   }
 
 # JSONP if valid callback
   if(is_valid_callback($_GET['callback'])) {
-    exit("{$_GET['callback']}($json)");
+    exit("{$_GET['callback']}("+extractOGTags($url, $html)+")");
   }
-
-
-  echo $callback.'(';
-  printOGTags($url, $html);
-  echo ')';
 ?>
